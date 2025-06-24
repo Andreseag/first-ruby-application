@@ -1,4 +1,4 @@
-class CommentsController < AplicationController
+class CommentsController < ApplicationController
 
   def index
     @article = Article.find(params[:article_id])
@@ -15,7 +15,7 @@ class CommentsController < AplicationController
     @comment =  @article.comments.build(comment_params)
 
     if @comment.save
-      redirect_to article_comment_path(@article)
+      redirect_to article_comments_path(@article)
     else 
       render :new
     end
